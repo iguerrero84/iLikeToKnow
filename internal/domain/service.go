@@ -3,7 +3,6 @@ package domain
 import (
 	"context"
 	"errors"
-	"fmt"
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -55,7 +54,6 @@ func (s ServiceImpl) GetEventById(ctx context.Context, eventId uuid.UUID) (*mode
 		}
 		return err
 	}); err == nil && event.ID != eventId {
-		fmt.Println("Do I pass by here ? ")
 		return nil, errors.New(model.ErrorNoRowsFound)
 	}
 

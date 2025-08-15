@@ -26,10 +26,8 @@ func (h *EventsHandler) GetEventById(w http.ResponseWriter, r *http.Request) {
 	}
 
 	row, err := h.ds.GetEventById(ctx, eventId)
-	fmt.Printf("GetEventById error type: %T, value: %v\n", err, err)
 	if err != nil {
 		if err.Error() == model.ErrorNoRowsFound {
-			fmt.Println("No rows found, I got it!")
 			h.writeError(w, http.StatusNotFound, "ResourceNotFound", "event not found")
 		}
 		return
