@@ -1,0 +1,22 @@
+meta {
+  name: Create Event -200 Ok
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/events
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+   "title":"Go Meetup 3",
+    "description": "event test 3",
+   "date":"2025-08-14"}
+}
+
+settings {
+  encodeUrl: true
+}
